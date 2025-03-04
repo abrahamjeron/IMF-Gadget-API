@@ -184,6 +184,72 @@
 			"response": []
 		},
 		{
+			"name": "Get Gadget by ID",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "secret",
+							"value": "jtlrw4tvv3qu45348v54vvy5ny7",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://imf-gadget-api-hvxk.onrender.com/gadgets/beebaa62-d1d6-45aa-a911-65a29f6e30c4",
+					"protocol": "https",
+					"host": [
+						"imf-gadget-api-hvxk",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"gadgets",
+						"beebaa62-d1d6-45aa-a911-65a29f6e30c4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add New Gadget",
 			"request": {
 				"auth": {
