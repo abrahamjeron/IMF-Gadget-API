@@ -13,8 +13,6 @@ app.use(bodyParser.json());
 app.use('/gadgets', gadgetRoutes);
 app.use('/auth', authRoutes);
 
-// Verify connection to Supabase PostgreSQL
-
 sequelize.authenticate()
     .then(() => {
         console.log('Connected to Supabase PostgreSQL ✅');

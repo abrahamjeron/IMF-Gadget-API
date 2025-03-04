@@ -1,4 +1,3 @@
-// controllers/gadgetController.js
 const Gadget = require('../models/Gadget');
 const { generateCodename, generateSuccessProbability } = require('../utils/helpers');
 
@@ -18,6 +17,25 @@ exports.getAllGadgets = async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch gadgets' });
     }
 };
+
+exports.getGadgetById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const gadget = await Gadget.findByPk(id);
+
+        if (!gadget) {
+            return res.status(404).json({ error: 'Gadget not found' });
+        }
+
+        res.json({
+            ...gadget.toJSON(),
+            successProbability: `${generateSuccessProbability()}%`
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch gadget' });
+    }
+};
+
 
 exports.addGadget = async (req, res) => {
     try {

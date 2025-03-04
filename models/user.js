@@ -1,4 +1,3 @@
-// models/user.js
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 
@@ -18,7 +17,7 @@ const User = sequelize.define('User', {
         allowNull: false,
     }
 }, {
-    tableName: 'User',  // ✅ Ensures correct table name
-    timestamps: false   // ❌ Disables automatic createdAt & updatedAt
+    tableName: 'User',  
+    timestamps: false   
 });
 module.exports = User;

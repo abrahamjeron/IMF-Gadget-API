@@ -2,14 +2,11 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 module.exports = (req, res, next) => {
-    // Ensure the Authorization header exists
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return res.status(401).json({ error: 'Unauthorized - No Bearer Token' });
     }
-
-    // Extract the token after 'Bearer '
     const token = authHeader.split(' ')[1];
 
     try {

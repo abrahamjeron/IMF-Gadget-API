@@ -18,7 +18,7 @@ const Gadget = sequelize.define('Gadget', {
     decommissionedAt: {
         type: DataTypes.DATE,
         allowNull: true,
-        field: 'decommissionedat'  // ✅ Ensure proper mapping
+        field: 'decommissionedat'  
     }
 }, {
     tableName: 'Gadget',
