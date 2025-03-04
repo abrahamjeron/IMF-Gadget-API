@@ -4,11 +4,15 @@ const { generateCodename, generateSuccessProbability } = require('../utils/helpe
 
 exports.getAllGadgets = async (req, res) => {
     try {
-        const gadgets = await Gadget.findAll();
+        const { status } = req.query;
+        const whereClause = status ? { status } : {}; // Filter by status if provided
+
+        const gadgets = await Gadget.findAll({ where: whereClause });
         const gadgetsWithProbability = gadgets.map(gadget => ({
             ...gadget.toJSON(),
             successProbability: `${generateSuccessProbability()}%`
         }));
+
         res.json(gadgetsWithProbability);
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch gadgets' });
